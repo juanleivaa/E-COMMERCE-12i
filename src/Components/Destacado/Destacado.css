@@ -24,3 +24,79 @@
     display: flex;
     gap: 30px;
 }
+
+/*===================================
+=========RESPONSIVE=============
+====================================*/
+
+@media(max-width:1280px) {
+    .destacado {
+        height: 70vh;
+    }
+
+    .destacado h1 {
+        font-size: 40px;
+    }
+
+    .destacado hr {
+        width: 160px;
+        height: 4px;
+    }
+
+    .destacado-item {
+        gap: 20px;
+        margin-top: 30px;
+    }
+}
+
+
+@media(max-width:1024px) {
+    .destacado {
+        height: 60vh;
+    }
+
+    .destacado h1 {
+        font-size: 30px;
+    }
+
+    .destacado hr {
+        width: 120px;
+        height: 3px;
+    }
+
+    .destacado-item {
+        gap: 15px;
+        margin-top: 20px;
+    }
+}
+
+@media(max-width:800px) {
+    .destacado {
+        height: 50vh;
+        gap: 6;
+    }
+
+    .destacado h1 {
+        font-size: 20px;
+    }
+
+    .destacado hr {
+        width: 100px;
+    }
+
+    .destacado-item {
+        gap: 5px;
+    }
+}
+
+@media(max-width:500px) {
+    .destacado {
+        height: 90vh;
+    }
+
+    .destacado-item {
+        display: grid ;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}

@@ -61,3 +61,52 @@
     border: none;
     border-radius: 10px;
 }
+
+/*===================================
+=========RESPOSIVE=============
+====================================*/
+
+@media(max-width:800px){
+    
+    .footer {
+        gap: 20px;
+    }
+
+    .footer-logo {
+        gap: 10px;
+        align-items: center;
+    }
+
+    .footer-logo img {
+        width: 45px;
+        height: 45px;
+        align-items: center;
+
+    }
+
+    .footer-logo p {
+        font-size: 25px;
+        align-items: center;
+
+    }
+
+    .footer-links {
+        font-size: 14px;
+        gap: 10px;
+        align-items: center;
+
+    }
+
+    .footer-social-icons {
+        width: 22px;
+        align-items: center;
+
+    }
+
+    .footer-copyright {
+        font-size: 13px;
+        align-items: center;
+
+    }
+
+}
