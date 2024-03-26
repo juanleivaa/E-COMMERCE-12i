@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 .cartitems {
     margin: 100px 170px;
 }
@@ -8,7 +15,7 @@
     border: 0;
 }
 
-.cartitem-format-main {
+.cartitems-format-main {
     display: grid;
     grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr;
     align-items: center;
@@ -107,4 +114,80 @@
     color: white;
     cursor: pointer;
 
+}
+
+
+/*===================================
+=========RESPOSIVE=============
+====================================*/
+
+@media (max-width: 1280px) {
+    
+    .cartitems {
+        margin: 60px 50px;
+    }
+
+    .cartitems-format-main{
+        grid-template-columns: 0.5fr 3fr 0.5fr 0.5fr 0.5fr 0.5fr;
+        gap: 20px;
+        padding: 15px 0px;
+        font-size: 15px;
+    }
+
+    .carticon-product-icon {
+        height: 50px;
+
+    }
+
+    .cartitems-remove-icon {
+        margin: auto;
+    }
+
+    .cartitems-quantity {
+        margin: 40px;
+        height: 30px;
+    }
+
+    .cartitem-down {
+        margin: 80px 0px;
+        flex-direction: column;
+        gap: 80px;
+    }
+
+    .cartitem-total {
+        margin: 0;
+    }
+
+    .cartitem-total button {
+        max-width: 200px;
+        height: 45px;
+        font-size: 13px;
+    }
+
+    .cartitem-promobox {
+        width: auto;
+        max-width: 500px;
+    }
+
+    .cartitem-promobox input {
+        width: 100%;
+    }
+
+    .cartitem-promobox button {
+        width: 120px;
+        margin-left: -125px;
+    }
+}
+
+@media(max-width:670px) {
+
+    .cartitems-format-main{
+        display: none;
+        grid-template-columns: 0.5fr 3fr 0.5fr;
+
+    }
+
+    .cartitems-format {
+        display: grid;
+    }
 }
