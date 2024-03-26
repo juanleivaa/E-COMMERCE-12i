@@ -21,7 +21,9 @@ const Navbar = () => {
     return (
         <div className='navbar'>
             <div className='nav-logo'>
-                <img className='logo' src={logo} alt="" />
+                <Link to={'/'}>
+                    <img className='logo' src={logo} alt="" />
+                </Link>
             </div>
             <img className='nav-dropdown' onClick={dropdown_toogle} src={nav_dropdown} alt="" />
             <ul ref={menuRef} className="nav-menu">
