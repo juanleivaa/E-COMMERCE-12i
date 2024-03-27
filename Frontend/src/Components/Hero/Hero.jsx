@@ -8,7 +8,6 @@ const Hero = () => {
   return (
     <div className='hero'>
         <div className="hero-left">
-            <h2>Detacados</h2>
             <div>
                 <div className="hero-hand-icon">
                     <p>Nuevo</p>
