@@ -214,6 +214,23 @@ app.post('/login', async (req, res) => {
 })
 
 
+//endpoint para "new collection"
+app.get('/newcollections', async (req, res) => {
+    let products = await Product.find({});
+    let newCollection = products.slice(1).slice(-8);
+    res.send(newCollection);
+})
+
+//endpoint para "destacados"
+app.get('/destacado', async (req, res) => {
+    let products = await Product.find({});
+    let destacado = products.slice(0,4);
+    res.send(destacado);
+})
+
+
+
+
 app.listen(port ,(error) => {
     if(!error){
         console.log("Server running on port: " + port);
