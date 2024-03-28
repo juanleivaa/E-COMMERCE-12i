@@ -29,6 +29,13 @@
     column-gap: 20px; 
 }
 
+.shopcategory-products img {
+    height: 350px;
+    width: 100%; 
+    object-fit: contain; 
+}
+
+
 .shopcategoryy-loadmore {
     display: flex;
     justify-content: center;
