@@ -229,7 +229,51 @@ app.get('/destacado', async (req, res) => {
 })
 
 
+//middleware to fetch user
+const fetchUser = (req, res, next) => {
+    const token = req.header('token');
+    if(!token) {
+        res.status(401).json({errors: "No token provided"})
+    }
+    else {
+        try {
+            const data = jwt.verify(token, 'secret_ecom');
+            req.user = data.user;
+            next();
+        } catch (error) {
+            res.status(401).send({errors: "Invalid token"})
+        }
+    }
 
+}
+
+//añadir productos en el carrito
+app.post('/addtocart', fetchUser ,async (req, res) => {
+    console.log("added" , req.body.itemId)
+    let userData = await Users.findOne({_id: req.user.id});
+    userData.cartData[req.body.itemId] += 1;
+    await Users.findOneAndUpdate({_id: req.user.id}, {cartData: userData.cartData});
+    res.send("Añadido");
+})
+
+
+//remove productos del cartdata
+app.post('/removefromcart', fetchUser, async (req, res) => {
+    console.log("removed" , req.body.itemId)
+    let userData = await Users.findOne({_id: req.user.id});
+    if(userData.cartData[req.body.itemId]>0)
+    userData.cartData[req.body.itemId] -= 1;
+    await Users.findOneAndUpdate({_id: req.user.id}, {cartData: userData.cartData});
+    res.send("Eliminado");
+})
+
+//obtener los datos del cart
+app.post('/getcart', fetchUser, async (req, res) => {
+    console.log("get cart")
+    let userData = await Users.findOne({_id: req.user.id});
+    res.json(userData.cartData);
+    
+})
 
 app.listen(port ,(error) => {
     if(!error){
