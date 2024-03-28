@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import all_products from "../Components/Assets/all_product"
+import { useEffect } from 'react';
 import { useState } from 'react';
 
 // Crear un nuevo contexto
@@ -8,7 +8,7 @@ export const ShopContext = createContext(null);
 
 const getDefaultCart = () => {
     let cart = {};
-    for (let index = 0; index < all_products.length+1; index++) {
+    for (let index = 0; index < 300+1; index++) {
         cart[index] = 0;
     }
     return cart;
@@ -19,8 +19,20 @@ const getDefaultCart = () => {
 
 // Proveedor de contexto para proporcionar datos a los componentes secundarios
 const ShopContextProvider = (props) => {
+
+
+    const [all_products , setAll_Products] = useState([])
     const [cartItems, setCartItems] = useState(getDefaultCart());
     // Definir el valor del contexto
+
+
+    useEffect(() => {
+        fetch('http://localhost:4000/allproducts')
+        .then((response) => response.json())
+        .then((data) => setAll_Products(data))
+    }, [])
+
+
 
     const addToCart = (itemId) => {
         setCartItems((prev) => ({...prev , [itemId]: prev[itemId] + 1}))
