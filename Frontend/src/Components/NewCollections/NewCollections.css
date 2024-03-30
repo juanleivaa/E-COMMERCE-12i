@@ -22,10 +22,15 @@
 
 .collections {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 50px;
+    grid-template-columns: repeat(5, 1fr); /* Por defecto, 5 columnas en desktop */
     gap: 30px;
+    margin-top: 50px;
 }
+
+.no-scroll-top {
+    scroll-behavior: auto !important;
+  }
+  
 
 /*===================================
 =========RESPONSIVE=============
@@ -63,6 +68,7 @@
     }
 
     .collections {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en tablet */
         gap: 15px;
         margin-top: 20px;
     }
@@ -88,10 +94,9 @@
 
 @media(max-width:500px) {
 
-
     .collections {
-        display: grid ;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr); 
         gap: 20px;
+        margin-top: 20px;
     }
 }
