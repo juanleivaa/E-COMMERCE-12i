@@ -35,7 +35,7 @@
 }
 
 .loginsignup-container button {
-    width: 580px;
+    width: auto;
     height: 72px;
     color: white;
     background: #ff4141;

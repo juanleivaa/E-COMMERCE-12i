@@ -1,8 +1,284 @@
+.header-container {
+    width: 100%;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+  }
+  
+  .logo {
+    width: 100px; 
+  }
+  
+  .search-bar {
+    width: 200px; 
+    padding: 5px;
+    margin-left: 10px;
+  }
+  
+  .social-icons {
+    display: flex;
+  }
+  
+  .icon {
+    width: 30px; 
+    margin-left: 10px;
+  }
+  
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  nav ul li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  .nav-login-cart {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.nav-login-cart button {
+    width: 100px;
+    height: 50px;
+    outline: none;
+    border: 1px solid #7a7a7a;
+    border-radius:75px ;
+    color: #515151;
+    font-size: 20px;
+    font-weight: 500;
+    background: white;
+    cursor: pointer;
+}
+
+.nav-login-cart button:active{
+    background: #f3f3f3;
+}
+
+
+.nav-cart-count {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -35px;
+    margin-left: -55px;
+    border-radius: 11px;
+    font-size: 14px;
+    background: red;
+    color: white;
+}
+  
+
+.header input {
+    height: 40px;
+    width: 500px;
+    outline: none;
+    color: #5c5c5c;
+    font-size: 18px;
+    margin-left:100px !important;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    color: #626262;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.nav-menu li {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+}
+
+.nav-menu hr {
+    border: none;
+    width: 80%;
+    height: 3px;
+    border-radius: 10px;
+    background: red;
+}
+
+
+
+@media(max-width:1280px) {
+    .navbar {
+        padding: 12px 50px;
+    }
+
+    .nav-logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-logo p {
+        width: 25px;
+    }
+    
+    .nav-menu {
+        gap: 30px;
+        font-size: 16px;
+    }
+
+    .nav-login-cart {
+        gap: 30px;
+    }
+
+    .nav-login-cart button {
+        width: 120px;
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .nav-cart-count {
+        margin-left: -40;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:1024px){
+
+    .header input {
+        height: 40px;
+        width: 300px;
+        outline: none;
+        color: #5c5c5c;
+        font-size: 18px;
+        margin-left:40px !important;
+    }
+
+    .navbar {
+        padding: 12px 30px;
+    }
+
+    .nav-menu {
+        gap: 25px;
+        font-size: 14px;
+    }
+
+    .nav-login-cart button {
+        width: 80px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .nav-login-cart img {
+        width: 30px;
+    }
+
+    .nav-cart-count {
+        width: 18px;
+        height: 18px;
+    }
+
+    .nav-logo img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-logo p {
+        width: 20px;
+    }
+    
+
+    .nav-login-cart {
+        gap: 20px;
+    }
+
+}
+
+@media (min-width: 800px) {
+    .mobile-menu {
+      display: none;
+    }
+  
+    .desktop-menu {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*===================================
 =====TODOS LOS ESTILOS DEL NAVBAR====
 ====================================*/
 
-.navbar {
+/* .navbar {
     display: flex;
     justify-content: space-around;
     padding: 15px 0px;
@@ -93,7 +369,7 @@
 
 .nav-dropdown {
     display: none;
-}
+} */
 
 /*===================================
 =========RESPOSIVE==================
@@ -101,7 +377,7 @@
 
 
 
-@media(max-width:1280px){
+/* @media(max-width:1280px){
     .navbar {
         padding: 12px 50px;
     }
@@ -227,4 +503,4 @@
     .nav-login-cart{
         transform: scale(0.8);
     }
-}
+} */
