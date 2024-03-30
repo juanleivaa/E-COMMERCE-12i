@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useContext, useState , useRef } from 'react';
+import { useContext, useState  } from 'react';
 import { ShopContext } from '../../Context/ShopContext';
 import { Link } from 'react-router-dom'; 
 import logo from '../Assets/logo.png';
@@ -18,7 +18,6 @@ const NavbarMobile = () => {
 
     const [menu, setMenu] = useState("shop");
     const { getTotalCartItems } = useContext(ShopContext)
-    const menuRef = useRef();
 
     return (
         <Navbar expand="lg" className="bg-body-tertiary sticky">
