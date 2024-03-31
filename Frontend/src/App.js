@@ -7,6 +7,8 @@ import Cart from './Pages/Cart';
 import LoginSignup from './Pages/LoginSignup';
 import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory';
+import ForgotPassword from './Pages/ForgotPassword';
+import ResetPassword from './Pages/ResetPassword';
 import Footer from './Components/Footer/Footer';
 import men_banner from './Components/Assets/banner_mens.png'
 import women_banner from './Components/Assets/banner_women.png'
@@ -28,6 +30,9 @@ function App() {
             </Route>
             <Route path='/cart' element={<Cart/>} />
             <Route path='/login' element={<LoginSignup/>} />
+            <Route path='/login/forgot-password' element={<ForgotPassword/>} />
+            <Route path='/reset-password/:id/:token' element={<ResetPassword/>} />
+
           </Routes>
           <Footer/>
       </BrowserRouter>

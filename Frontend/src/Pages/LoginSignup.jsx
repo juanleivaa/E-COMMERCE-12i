@@ -1,5 +1,6 @@
 import React , { useState } from 'react'
 import './CSS/LoginSignup.css'
+import { Link } from 'react-router-dom'
 
 const LoginSignup = () => {
 
@@ -62,23 +63,24 @@ const LoginSignup = () => {
 
   return (
     <div className="loginsignup">
-        <div className="loginsignup-container">
-          <h1>{state}</h1>
-          <div className="loginsignup-fields">
-            {state==='Sign Up' ? <input name='username' value={formData.username} onChange={changeHandler} type="text" placeholder='Nombre'/> :<></>}
-            <input name='email' value={formData.email} onChange={changeHandler} type="email" placeholder='Su correo electronico'/>
-            <input name='password' value={formData.password} onChange={changeHandler} type="password" placeholder='Contraseña'/>
-          </div>
-          <button onClick={()=>{state==='Login'? login():signup()}}>Continuar</button>
-          {state==='Sign Up' ? 
-          <p className='loginsignup-login'>¿Ya tienes una cuenta? <span onClick={() => {setState('Login')}}>Login</span></p> :
-          <p className='loginsignup-login'>¿Quieres crear una cuenta? <span onClick={() => {setState('Sign Up')}}>Aquí</span></p>
-          }
-          <div className="loginsignup-agree">
-            <input type="checkbox" name='' id='' />
-            <p>Para continuar, debe aceptar los terminos y condiciones </p>
-          </div>
+      <div className="loginsignup-container">
+        <h1>{state}</h1>
+        <div className="loginsignup-fields">
+          {state === 'Sign Up' ? <input name='username' value={formData.username} onChange={changeHandler} type="text" placeholder='Nombre' /> : <></>}
+          <input name='email' value={formData.email} onChange={changeHandler} type="email" placeholder='Su correo electronico' />
+          <input name='password' value={formData.password} onChange={changeHandler} type="password" placeholder='Contraseña' />
+          {state === 'Login' && <Link to="forgot-password"><p>Recuperar contraseña</p></Link>}
         </div>
+        <button onClick={() => { state === 'Login' ? login() : signup() }}>Continuar</button>
+        {state === 'Sign Up' ?
+          <p className='loginsignup-login'>¿Ya tienes una cuenta? <span onClick={() => { setState('Login') }}>Login</span></p> :
+          <p className='loginsignup-login'>¿Quieres crear una cuenta? <span onClick={() => { setState('Sign Up') }}>Aquí</span></p>
+        }
+        <div className="loginsignup-agree">
+          <input type="checkbox" name='' id='' />
+          <p>Para continuar, debe aceptar los terminos y condiciones </p>
+        </div>
+      </div>
 
     </div>
   )
