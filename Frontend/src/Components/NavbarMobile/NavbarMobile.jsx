@@ -37,16 +37,18 @@ const NavbarMobile = () => {
                 </div>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
+                        <li onClick={() => { setMenu('shop') }}><Link style={{textDecoration:'none' , color:'#626262'}} to='/'>Home</Link>{menu === "shop" ? <hr/> : <></>}</li>
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">
-                                <li onClick={() => { setMenu('mens') }}><Link style={{textDecoration:'none'}} to='/mens'>Hombre</Link>{menu === "mens" ? <hr/> : <></>}</li>
+                                <li onClick={() => { setMenu('mens') }}><Link style={{textDecoration:'none'}} to='/mens'>Hombre</Link></li>
                             </NavDropdown.Item>
+                            <NavDropdown.Divider />
                             <NavDropdown.Item href="#action4">
-                                <li onClick={() => { setMenu('womens') }}><Link style={{textDecoration:'none'}} to='/womens'>Mujer</Link>{menu === "womens" ? <hr/> : <></>}</li>
+                                <li onClick={() => { setMenu('womens') }}><Link style={{textDecoration:'none'}} to='/womens'>Mujer</Link></li>
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action5">
-                                <li onClick={() => { setMenu('kids') }}><Link style={{textDecoration:'none'}} to='/kids'>Niños</Link>{menu === "kids" ? <hr/> : <></>}</li>
+                                <li onClick={() => { setMenu('kids') }}><Link style={{textDecoration:'none'}} to='/kids'>Niños</Link></li>
                             </NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href="#action1">Destacado</Nav.Link>
