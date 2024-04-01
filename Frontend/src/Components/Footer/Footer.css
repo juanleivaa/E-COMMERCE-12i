@@ -1,114 +1,52 @@
 .footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
+    background: #d6d6d6;
 }
 
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.img-fluid{
+    width: 200px;
+    height: 200px;
 }
 
-.footer-logo p {
-    color: #383838;
-    font-size: 46px;
-    font-weight:700 ;
+.links {
+    padding-top: 5vh;
 }
 
-.footer-links {
-    display: flex;
-    list-style: none;
-    gap: 50px;
+.links a {
     color: #252525;
-    font-size: 20px;
+    text-decoration: none;
 }
 
-.footer-links li {
-    cursor: pointer;
+.social-icons {
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
 }
 
-.footer-social-icons {
-    display: flex;
-    gap: 20px;
-
+.copyright {
+    padding: 40px;
+    text-align: center;
 }
 
-.footer-icons-container {
-    padding: 10px;
-    padding-bottom: 6px;
-    background: #fbfbfb;
-    border: 1px solid #e0e0e0;
-}
+@media(max-width:800px) {
 
-.footer-copyright {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    width: 100%;
-    margin-bottom: 30px;
-    color: #1a1a1a;
-    font-size: 20px;
-}
-
-.footer-copyright hr {
-    width: 80%;
-    height: 3px;
-    background: #c7c7c7;
-    border: none;
-    border-radius: 10px;
-}
-
-/*===================================
-=========RESPOSIVE=============
-====================================*/
-
-@media(max-width:800px){
-    
-    .footer {
-        gap: 20px;
+    .img-fluid {
+        width: 90px;
+        height: 90px;
     }
 
-    .footer-logo {
-        gap: 10px;
-        align-items: center;
+    .links {
+        display: none;
     }
 
-    .footer-logo img {
-        width: 45px;
-        height: 45px;
-        align-items: center;
-
+    .contac-info {
+        display: none;
     }
 
-    .footer-logo p {
-        font-size: 25px;
-        align-items: center;
-
+    .qrdataf {
+        display: none;
     }
 
-    .footer-links {
-        font-size: 14px;
-        gap: 10px;
-        align-items: center;
-
+    .copyright {
+        display: none;
     }
-
-    .footer-social-icons {
-        width: 22px;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-
-    }
-
-    .footer-copyright {
-        font-size: 13px;
-        align-items: center;
-
-    }
-
 }
