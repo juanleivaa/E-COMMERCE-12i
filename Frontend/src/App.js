@@ -31,7 +31,7 @@ function App() {
             <Route path='/cart' element={<Cart/>} />
             <Route path='/login' element={<LoginSignup/>} />
             <Route path='/login/forgot-password' element={<ForgotPassword/>} />
-            <Route path='/reset-password/:id/:token' element={<ResetPassword/>} />
+            <Route path='/reset-password/:id/:token' element={<ResetPassword/>}></Route>
 
           </Routes>
           <Footer/>

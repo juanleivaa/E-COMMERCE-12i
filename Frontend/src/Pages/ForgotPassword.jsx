@@ -7,11 +7,12 @@ const ForgotPassword = () => {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/forgot-password', {
+      const response = await axios.post('http://localhost:4000/forgot-password', {
         email: email,
       });
 

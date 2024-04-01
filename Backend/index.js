@@ -1,4 +1,4 @@
-const port = 3000; // Cambiar el puerto a 3000 u otro puerto disponible
+const port = 4000; // Cambiar el puerto a 3000 u otro puerto disponible
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -9,6 +9,8 @@ const cors = require('cors');
 const emailjs = require('emailjs-com');
 const { v4: uuid } = require('uuid');
 const nodemailer = require('nodemailer');
+const bcrypt = require('bcrypt');
+
 
 
 
@@ -280,98 +282,6 @@ app.post('/getcart', fetchUser, async (req, res) => {
 })
 
 
-const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-      user: 'jleiva21082004@gmail.com',
-      pass: 'cioy tmde dcsz ytnr' 
-    }
-  });
-
-  
-
-const sendRecoveryEmail = async (email, resetLink) => {
-    try {
-        await transporter.sendMail({
-            from: 'jleiva21082004@gmail.com',
-            to: email,
-            subject: 'Recuperación de contraseña',
-            text: `Hola, ${email}. Para recuperar tu contraseña, haz clic en el siguiente enlace: ${resetLink}`,
-        });
-
-        console.log('Correo electrónico de recuperación enviado');
-    } catch (error) {
-        console.error('Error al enviar el correo electrónico de recuperación:', error);
-    }
-};
-
-
-
-// Ruta para recuperar contraseña
-app.post('/recover-password', async (req, res) => {
-    const { email } = req.body;
-
-    try {
-        const user = await Users.findOne({ email });
-
-        if (!user) {
-            return res.status(400).send({
-                ok: false,
-                message: 'No se encontró ningún usuario con ese correo electrónico',
-            });
-        }
-
-        const token = uuid();
-
-        user.resetPasswordToken = token;
-        user.resetPasswordExpires = Date.now() + 3600000; // 1 hora
-
-        await user.save();
-
-        const resetLink = `http://localhost:3000/reset-password?token=${token}`;
-        await sendRecoveryEmail(email, resetLink);
-
-        return res.status(200).send({
-            ok: true,
-            message: 'Se ha enviado un correo electrónico con instrucciones para recuperar tu contraseña',
-        });
-
-    } catch (err) {
-        console.log(err);
-        return res.status(500).send({
-            ok: false,
-            message: 'Error en la petición',
-            error: err,
-        });
-    }
-});
-
-// Ruta para restablecer la contraseña
-app.get('/reset-password', async (req, res) => {
-    const { token } = req.query;
-
-    try {
-        const user = await Users.findOne({
-            resetPasswordToken: token,
-            resetPasswordExpires: { $gt: Date.now() }
-        });
-
-        if (!user) {
-            return res.status(400).send('El enlace de restablecimiento de contraseña no es válido o ha caducado.');
-        }
-
-        // Aquí puedes mostrar un formulario para que el usuario ingrese una nueva contraseña
-
-        res.send('Formulario para restablecer la contraseña');
-    } catch (err) {
-        console.error('Error al restablecer la contraseña:', err);
-        res.status(500).send('Ha ocurrido un error al procesar la solicitud.');
-    }
-});
-
-
 app.post('/forgot-password', (req, res) => {
     const { email } = req.body;
     Users.findOne({ email: email })
@@ -404,6 +314,23 @@ app.post('/forgot-password', (req, res) => {
             });
         })
 });
+
+
+app.post('/reset-password/:id/:token', (req, res) => {
+    const { id, token } = req.params;
+    const { password } = req.body;
+
+    jwt.verify(token, "jwt_secret_key", (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ errors: "Invalid token" });
+        } else {
+            Users.findByIdAndUpdate({ _id: id }, { password: password })
+                .then(u => res.send({ message: "Contraseña actualizada" }))
+                .catch(err => res.send({ errors: "Error al actualizar la contraseña" }))
+        }
+    })
+})
+
 
 
 app.listen(port ,(error) => {

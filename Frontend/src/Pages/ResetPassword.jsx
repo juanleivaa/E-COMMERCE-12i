@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import './CSS/LoginSignup.css';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , useParams } from 'react-router-dom';
 
 const ResetPassword = () => {
   const [password, setPassword] = useState();
   const navigate = useNavigate();
+  const { id, token } = useParams();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/forgot-password', {
+      const response = await axios.post(`http://localhost:4000/reset-password/${id}/${token}`, {
         password: password,
       });
 
@@ -31,18 +33,18 @@ const ResetPassword = () => {
   return (
     <div className="loginsignup">
       <div className="loginsignup-container">
-        <h1>Reset Contraseña</h1>
+        <h1>Nueva constraseña</h1>
         <form onSubmit={handleSubmit}>
           <div className="loginsignup-fields">
             <input
-              name="password"
-              value={email}
-              onChange={(e) => setPassword(e.target.value)}
               type="password"
-              placeholder="Enter new password"
+              placeholder="Su correo electronico"
+              autoComplete='off'
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit">Enviar Correo</button>
+          <button type="submit">Actualizar</button>
         </form>
       </div>
     </div>
