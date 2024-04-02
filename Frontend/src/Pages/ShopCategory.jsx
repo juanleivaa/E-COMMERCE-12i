@@ -11,7 +11,7 @@ const ShopCategory = (props) => {
 
   return (
     <div className='shop-category'>
-        <img className="shopcategory-banner" src={props.banner} alt="" />
+        <img className="shopcategory-banner" src={props.banner} alt="bannermens" />
       <Grid container spacing={2}>
         <Grid item xs={8}>
           <div className="shopcategory-products">
@@ -26,8 +26,8 @@ const ShopCategory = (props) => {
         </Grid>
         <Grid item xs={4}>
           <div className='shopcategory-publicidad'>
-            <img src={Publicidad} alt="" />
-            <img src={Publicidad2} className='publicidad-image' />
+            <img src={Publicidad} alt="publicidad1" />
+            <img src={Publicidad2} className='publicidad-image' alt='publicidad2' />
           </div>
         </Grid>
       </Grid>

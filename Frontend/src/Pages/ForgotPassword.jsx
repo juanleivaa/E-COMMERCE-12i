@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-  const navigate = useNavigate();
 
 
   const handleSubmit = async (e) => {

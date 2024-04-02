@@ -4,10 +4,6 @@ import { Container, Row, Col } from 'react-bootstrap';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
-import footer_logo from '../Assets/logo_footer.png'
-import instagram_icon from '../Assets/instagram_icon.png'
-import pintester_icon from '../Assets/pintester_icon.png'
-import whatsapp_icon from '../Assets/whatsapp_icon.png'
 import logo from '../Assets/logo.png'
 import qrdatafiscal from '../Assets/qrdatafiscal.jpg'
 
@@ -23,27 +19,27 @@ function Footer() {
             <Col className='links'>
               <Row>
                 <Col>
-                  <a href="#">Home</a>
+                  <a>Home</a>
                 </Col>
                 <Col>
-                  <a href="#">Destacado</a>
+                  <a>Destacado</a>
                 </Col>
               </Row>
               <Row>
                 <Col>
-                  <a href="#">Contacto</a>
+                  <a>Contacto</a>
                 </Col>
                 <Col>
-                  <a href="#">Ayuda</a>
+                  <a>Ayuda</a>
                 </Col>
               </Row>
             </Col>
             <Col>
               <Row>
                 <Col className='social-icons' >
-                  <a href="#"><GitHubIcon style={{color:'#525252'}}/></a>
-                  <a href="#"><LinkedInIcon  style={{color:'#525252'}}/></a>
-                  <a href="#"><FacebookIcon  style={{color:'#525252'}}/></a>
+                  <a><GitHubIcon style={{color:'#525252'}}/></a>
+                  <a><LinkedInIcon  style={{color:'#525252'}}/></a>
+                  <a><FacebookIcon  style={{color:'#525252'}}/></a>
                 </Col>
               </Row>
               <Row className='contac-info'>
