@@ -38,7 +38,7 @@ const ResetPassword = () => {
           <div className="loginsignup-fields">
             <input
               type="password"
-              placeholder="Su correo electronico"
+              placeholder="Su nueva contraseña"
               autoComplete='off'
               name="password"
               onChange={(e) => setPassword(e.target.value)}

@@ -40,7 +40,9 @@ const Destacado = () => {
   };
 
   return (
-    <div className='destacado'>
+    <div id='destacado'>
+    <br /> <br/> <br /><br /> <br /> <br /> <br />
+    <div className='destacado' >
       <h1>Destacado</h1>
       <Carousel
           responsive={responsive}
@@ -53,16 +55,9 @@ const Destacado = () => {
             </div>
           ))}
         </Carousel>
-
-
-
-
-      {/* <div className="destacado-item">
-        {destacado.map((item, i) => {
-          return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />;
-        })}
-      </div> */}
     </div>
+    </div>
+
   )
 }
 

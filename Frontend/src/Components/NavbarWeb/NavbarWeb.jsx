@@ -1,7 +1,9 @@
-import React, { useContext, useState , useRef } from 'react';
+// NavbarWeb.jsx
+import React, { useContext, useState } from 'react';
 import { ShopContext } from '../../Context/ShopContext';
 import './NavbarWeb.css'; 
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll'
 import logo from '../Assets/logo.png';
 import cart_icon from '../Assets/cart_icon.png';
 import Form from 'react-bootstrap/Form';
@@ -13,7 +15,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const NavbarWeb = () => {
     const [menu, setMenu] = useState("shop");
     const {getTotalCartItems} = useContext(ShopContext);
-    const menuRef = useRef();
 
     return (
         <div className="header-container sticky">
@@ -35,27 +36,25 @@ const NavbarWeb = () => {
             </div>
             <div className="sticky-nav">
                 <nav>
-                    <ul ref={menuRef} className="nav-menu">
+                    <ul className="nav-menu">
                         <li onClick={() => { setMenu('shop') }}><Link style={{textDecoration:'none' , color:'#626262'}} to='/'>Home</Link>{menu === "shop" ? <hr/> : <></>}</li>
-                        <li onClick={() => { setMenu('') }}><Link style={{textDecoration:'none', color:'#626262'}} to='/'>Destacado</Link>{menu === "" ? <hr/> : <></>}</li>
+                        <li><ScrollLink style={{textDecoration:'none', color:'#626262'}} to='destacado' smooth={true} duration={500}>Destacado</ScrollLink>{menu === "" ? <hr/> : <></>}</li>
+                        <li><ScrollLink style={{textDecoration:'none', color:'#626262'}} to='shop' smooth={true} duration={500}>Shop</ScrollLink>{menu === "" ? <hr/> : <></>}</li>
+
                         <li>
                             <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">
-                                    <Link onClick={() => { setMenu('mens') }} style={{textDecoration:'none', color:'#626262'}} to='/mens'>Hombre</Link>{menu === "mens" ? <hr/> : <></>}
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">
-                                    <Link onClick={() => { setMenu('womens') }} style={{textDecoration:'none', color:'#626262'}} to='/womens'>Mujer</Link>{menu === "womens" ? <hr/> : <></>}
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action5">
-                                    <Link onClick={() => { setMenu('kids') }} style={{textDecoration:'none', color:'#626262'}} to='/kids'>Niños</Link>{menu === "kids" ? <hr/> : <></>}
-                                </NavDropdown.Item>
+                                <NavDropdown.Item><li onClick={() => { setMenu('mens') }}><Link style={{textDecoration:'none'}} to='/mens'>Hombre</Link></li></NavDropdown.Item>
+                                <NavDropdown.Item><li onClick={() => { setMenu('womens') }}><Link style={{textDecoration:'none'}} to='/womens'>Mujer</Link></li></NavDropdown.Item>
+                                <NavDropdown.Item><li onClick={() => { setMenu('kids') }}><Link style={{textDecoration:'none'}} to='/kids'>Niños</Link></li></NavDropdown.Item>
                             </NavDropdown>
                         </li>
-                        <li onClick={() => { setMenu('') }}><Link style={{textDecoration:'none', color:'#626262'}} to='/'>Contacto</Link>{menu === "" ? <hr/> : <></>}</li>
-                        <li onClick={() => { setMenu('') }}><Link style={{textDecoration:'none', color:'#626262'}} to='/'><InfoIcon></InfoIcon></Link>{menu === "" ? <hr/> : <></>}</li>
+                        <li><Link style={{textDecoration:'none', color:'#626262'}} to='/'>Contacto</Link>{menu === "" ? <hr/> : <></>}</li>
+                        <li><Link style={{textDecoration:'none', color:'#626262'}} to='/'><InfoIcon></InfoIcon></Link>{menu === "" ? <hr/> : <></>}</li>
                     </ul>
                 </nav>
+                
             </div>
+
         </div>
     );
 };

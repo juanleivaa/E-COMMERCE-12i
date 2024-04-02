@@ -78,7 +78,7 @@ const LoginSignup = () => {
         }
         <div className="loginsignup-agree">
           <input type="checkbox" name='' id='' />
-          <p>Para continuar, debe aceptar los terminos y condiciones </p>
+          <p>Quiero que me envien notificaciones </p>
         </div>
       </div>
 

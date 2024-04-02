@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { useContext, useState  } from 'react';
 import { ShopContext } from '../../Context/ShopContext';
 import { Link } from 'react-router-dom'; 
+import { Link as ScrollLink } from 'react-scroll'
 import logo from '../Assets/logo.png';
 import cart_icon from '../Assets/cart_icon.png';
 import './NavbarMobile.css'; 
@@ -38,6 +39,12 @@ const NavbarMobile = () => {
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
                         <li onClick={() => { setMenu('shop') }}><Link style={{textDecoration:'none' , color:'#626262'}} to='/'>Home</Link>{menu === "shop" ? <hr/> : <></>}</li>
+                        <Nav.Link>
+                             <li><ScrollLink style={{textDecoration:'none', color:'#626262'}} to='destacado' smooth={true} duration={500}>Destacado</ScrollLink>{menu === "" ? <hr/> : <></>}</li>
+                        </Nav.Link>
+                        <Nav.Link>
+                             <li><ScrollLink style={{textDecoration:'none', color:'#626262'}} to='shop' smooth={true} duration={500}>Shop</ScrollLink>{menu === "" ? <hr/> : <></>}</li>
+                        </Nav.Link>
                         <NavDropdown title="Categorias" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="#action3">
                                 <li onClick={() => { setMenu('mens') }}><Link style={{textDecoration:'none'}} to='/mens'>Hombre</Link></li>
@@ -51,7 +58,6 @@ const NavbarMobile = () => {
                                 <li onClick={() => { setMenu('kids') }}><Link style={{textDecoration:'none'}} to='/kids'>Niños</Link></li>
                             </NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="#action1">Destacado</Nav.Link>
                         <Nav.Link href="#action1">Contacto</Nav.Link>
                         <Nav.Link href="#action1">Ayuda</Nav.Link>
                     </Nav>

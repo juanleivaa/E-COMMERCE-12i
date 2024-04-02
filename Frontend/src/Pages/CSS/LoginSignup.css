@@ -112,11 +112,34 @@
     }
 }
 
+@media(max-width:821px) {
+    .loginsignup-container {
+        width: 400px;
+        height: 600px;
+        padding: 30px 40px;
+    }
+
+    .loginsignup-container h1 {
+        font-size: 24px;
+    }
+
+    .loginsignup-fields input {
+        height: 60px;
+    }
+
+    .loginsignup-container button {
+        height: 60px;
+        font-size: 20px;
+    }
+
+
+}
+
 @media(max-width: 800px) {
 
     .loginsignup-container {
         width: 300px;
-        height: 450px;
+        height: 550px;
         padding: 30px 40px;
     }
     .loginsignup-container h1 {
@@ -133,3 +156,14 @@
     }
 
 }
+
+@media(max-width:500){
+    .loginsignup-container {
+        width: 300px;
+        height: 450px;
+        padding: 30px 40px;
+    }
+
+}
+
+

@@ -30,19 +30,23 @@ const NewCollections = () => {
   };
 
   return (
-    <div className='new-collections'>
-      <h1>SHOP</h1>
-      <hr />
-      <div className="collections">
-        {currentItems.map((item, i) => (
-          <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
-        ))}
-      </div>
-      <div className="pagination">
-        <Button type="button" onClick={prevPage} disabled={currentPage === 1} variant="contained" color="primary">Anterior</Button>
-        <Button type="button" onClick={nextPage} disabled={indexOfLastItem >= new_collections.length} variant="contained" color="primary">Siguiente</Button>
-      </div>
+    <div id='shop'>
+    <br /> <br/> <br /><br /> <br /> <br /> <br />
+        <div className='new-collections'>
+          <h1>SHOP</h1>
+          <hr />
+          <div className="collections">
+            {currentItems.map((item, i) => (
+              <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
+            ))}
+          </div>
+          <div className="pagination">
+            <Button type="button" onClick={prevPage} disabled={currentPage === 1} variant="contained" color="primary">Anterior</Button>
+            <Button type="button" onClick={nextPage} disabled={indexOfLastItem >= new_collections.length} variant="contained" color="primary">Siguiente</Button>
+          </div>
+        </div>
     </div>
+
   );
 };
 
