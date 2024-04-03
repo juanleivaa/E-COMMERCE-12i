@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import './CSS/LoginSignup.css';
 import axios from 'axios';
-import { useNavigate , useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const ResetPassword = () => {
   const [password, setPassword] = useState();
-  const navigate = useNavigate();
   const { id, token } = useParams();
 
 
