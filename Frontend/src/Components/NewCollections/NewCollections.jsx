@@ -12,7 +12,7 @@ const NewCollections = () => {
   const itemsPerPage = isDesktop ? 15 : (isTablet ? 12 : 10);
 
   useEffect(() => {
-    fetch('https://e-commerce-12i-1.onrender.com//allproducts')
+    fetch('https://e-commerce-12i-1.onrender.com/allproducts')
       .then((response) => response.json())
       .then((data) => setNew_Collections(data));
   }, []);

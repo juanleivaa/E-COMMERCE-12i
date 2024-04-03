@@ -10,7 +10,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('https://e-commerce-12i-1.onrender.com//forgot-password', {
+      const response = await axios.post('https://e-commerce-12i-1.onrender.com/forgot-password', {
         email: email,
       });
 
