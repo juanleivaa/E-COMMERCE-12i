@@ -14,7 +14,7 @@ const Destacado = () => {
   const [destacado , setDestacado] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:4000/destacado')
+    fetch('https://e-commerce-12i-rc.onrender.com/destacado')
     .then((response) => response.json())
     .then((data) => setDestacado(data))
   } , [])

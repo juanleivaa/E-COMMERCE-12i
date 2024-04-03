@@ -27,6 +27,8 @@ app.get('/', (req, res) => {
     res.send("API E-COMMERCE");
 })
 
+
+
 // Image storage
 const storage = multer.diskStorage({
     destination: './upload/images',
