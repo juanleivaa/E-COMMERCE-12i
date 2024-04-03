@@ -12,7 +12,7 @@ const ResetPassword = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`https://e-commerce-12i-rc.onrender.com/reset-password/${id}/${token}`, {
+      const response = await axios.post(`https://e-commerce-12i-1.onrender.com//reset-password/${id}/${token}`, {
         password: password,
       });
 
