@@ -303,7 +303,7 @@ app.post('/forgot-password', (req, res) => {
                 from: 'jleiva21082004',
                 to: email ,
                 subject: 'Password Reset',
-                text: `http://localhost:3000/reset-password/${user._id}/${token}`
+                text: `https://e-commerce-12i-1.onrender.com/reset-password/${user._id}/${token}`
             }
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {
