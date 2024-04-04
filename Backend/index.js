@@ -27,8 +27,6 @@ app.get('/', (req, res) => {
     res.send("API E-COMMERCE");
 })
 
-
-
 // Image storage
 const storage = multer.diskStorage({
     destination: './upload/images',
@@ -50,7 +48,7 @@ app.use('/images', express.static('upload/images'));
 app.post('/upload', upload.single('product'), (req, res) => {
     res.json({
         success: 1,
-        image_url: `http://localhost:${port}/images/${req.file.filename}`
+        image_url: `http://https://e-commerce-12i-1.onrender.com/images/${req.file.filename}`
     })
 })
 
